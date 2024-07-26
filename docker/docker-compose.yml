@@ -1,11 +1,13 @@
 version: '3'
 services:
-  database:
+  db:
     build: .
-    container_name: 'PG-data-base'
+    container_name: 'db-postgres'
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
-      - POSRTGRES_DB=lesson05
+      - POSTGRES_USER=afanasev
+      - POSTGRES_PASSWORD=afa
+      - POSTGRES_DB=lesson05
     ports:
       - "5432:5432"
+    volumes:
+      - ./pgconfig:/docker-entrypoint-initdb.d/
