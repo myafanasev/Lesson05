@@ -1,0 +1,4 @@
+FROM openjdk:17
+EXPOSE 8080
+COPY /target/lesson05.jar lesson05.jar
+ENTRYPOINT ["java", "-jar", "lesson05.jar"]

@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    build:
+      dockerfile: dockerFileDB
+      context: .
+    container_name: 'db-postgres'
+    environment:
+      - POSTGRES_USER=afanasev
+      - POSTGRES_PASSWORD=afa
+      - POSTGRES_DB=lesson05
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./dockerConfig:/docker-entrypoint-initdb.d/
+
+  application:
+    depends_on:
+      - db
+    build:
+      dockerfile: dockerFileApp
+      context: .
+    container_name: 'java-start'
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/lesson05
+      - SPRING_DATASOURCE_USERNAME=afanasev
+      - SPRING_DATASOURCE_PASSWORD=afa
