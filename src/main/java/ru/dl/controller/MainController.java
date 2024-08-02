@@ -10,9 +10,12 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import ru.dl.exception.ExceptionBadRequest;
 import ru.dl.exception.ExceptionNotFound;
+import ru.dl.model.ModelProduct;
 import ru.dl.response.AccountResponse;
 import ru.dl.model.ModelAccount;
+import ru.dl.response.ProductResponse;
 import ru.dl.service.AccountService;
+import ru.dl.service.ProductService;
 
 import java.util.stream.Collectors;
 
@@ -21,11 +24,21 @@ public class MainController {
     @Autowired
     AccountService accountService; // обработка запроса создания продуктового регистра
 
+    @Autowired
+    ProductService productService; // обработка запроса создания нового объекта ЭКЗЕМПЛЯР ПРОДУКТА
+
     @PostMapping("/corporate-settlement-account/create")
     public ResponseEntity<AccountResponse> handleAccount(@RequestBody @Validated ModelAccount modelAccount) {
         System.out.println(modelAccount);
 
         return new ResponseEntity<>(accountService.make(modelAccount), HttpStatus.OK);
+    }
+
+    @PostMapping("/corporate-settlement-instance/create")
+    public ResponseEntity<ProductResponse> handleProduct(@RequestBody @Validated ModelProduct modelProduct) {
+        System.out.println(modelProduct);
+
+        return new ResponseEntity<>(productService.make(modelProduct), HttpStatus.OK);
     }
 
     // обработчики исключений:

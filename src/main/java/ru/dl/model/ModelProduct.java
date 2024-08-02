@@ -16,7 +16,7 @@ import java.util.Properties;
 public class ModelProduct {
     private Long instanceId;
     @NotNull(message = "Имя обязательного параметра productType не заполнено")
-    private String productType;
+    private EnumTypeAgreement productType;
     @NotNull(message = "Имя обязательного параметра productCode не заполнено")
     private String productCode;
     @NotNull(message = "Имя обязательного параметра registerType не заполнено")
@@ -34,7 +34,7 @@ public class ModelProduct {
     private Double thresholdAmount;
     private String accountingDetails;
 
-    private String rateType;
+    private EnumRateType rateType;
     private Double taxPercentageRate;
     private Double technicalOverdraftLimitAmount;
     @NotNull(message = "Имя обязательного параметра contractId не заполнено")
@@ -46,6 +46,6 @@ public class ModelProduct {
     @NotNull(message = "Имя обязательного параметра urgencyCode не заполнено")
     private String urgencyCode;
     Integer referenceCode;
-    private  List<ModelProp> additionalPropertiesVip = new ArrayList<>();
+    private ModelProp additionalPropertiesVip;
     private List<ModelAgreement> instanceArrangement = new ArrayList<>();
 }
