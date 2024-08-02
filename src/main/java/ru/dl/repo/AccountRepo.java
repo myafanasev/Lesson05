@@ -4,4 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import ru.dl.entity.Account;
 
 public interface AccountRepo extends JpaRepository<Account, Long> {
+    Account findFirstByAccountPoolId(Long accountPoolId);
 }

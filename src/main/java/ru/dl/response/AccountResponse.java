@@ -1,13 +1,13 @@
-package ru.dl;
+package ru.dl.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class ResponseAccountId {
+public class AccountResponse {
     ResponseAccountBody data;
 
-    public ResponseAccountId(Long accountId) {
+    public AccountResponse(Long accountId) {
         this.data = new ResponseAccountBody(accountId);
     }
     @Data

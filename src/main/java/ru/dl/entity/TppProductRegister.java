@@ -31,4 +31,15 @@ public class TppProductRegister {
     @Basic
     @Column(name = "account_number", nullable = true, length = 25)
     private String accountNumber;
+
+    public TppProductRegister() {}
+
+    public TppProductRegister(Long productId, String type, Long account, String currencyCode, String state, String accountNumber) {
+        this.productId = productId;
+        this.type = type;
+        this.account = account;
+        this.currencyCode = currencyCode;
+        this.state = state;
+        this.accountNumber = accountNumber;
+    }
 }
