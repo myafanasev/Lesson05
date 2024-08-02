@@ -3,7 +3,7 @@ package ru.dl.oper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.dl.entity.Account;
-import ru.dl.entity.State;
+import ru.dl.model.EnumState;
 import ru.dl.entity.TppProductRegister;
 import ru.dl.model.ModelAccount;
 import ru.dl.repo.TppProductRegisterRepo;
@@ -21,7 +21,7 @@ public class AccountDB {
                 modelAccount.getRegistryTypeCode(),
                 account.getId(),
                 modelAccount.getCurrencyCode(),
-                State.OPEN.getNumState(),
+                EnumState.OPEN.getNumState(),
                 account.getAccountNumber()
                 );
         return repoTppProductRegister.save(tppProductRegister);
