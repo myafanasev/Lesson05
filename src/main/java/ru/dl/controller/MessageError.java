@@ -11,12 +11,10 @@ public class MessageError {
     private int status;
     private HttpStatusCode statusCode;
     private String message;
-    private Map<String, String> errors; // список ошибок
 
-    public MessageError(int status, HttpStatusCode statusCode, String message, Map<String, String> errors) {
+    public MessageError(int status, HttpStatusCode statusCode, String message) {
         this.status = status;
         this.statusCode = statusCode;
         this.message = message;
-        this.errors = errors;
     }
 }

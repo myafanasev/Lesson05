@@ -42,31 +42,19 @@ public class MainController {
     // обработчики исключений:
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<MessageError> handle(MethodArgumentNotValidException e) {
-        MessageError messageError = new MessageError(e.getBody().getStatus(), HttpStatus.BAD_REQUEST,
-               null,
-               e.getBindingResult()
-                       .getFieldErrors()
-                       .stream().collect(Collectors.toMap(x -> x.getField(), x -> x.getDefaultMessage()))
-        );
-        //messageError.setMessage(e.getMessage());
+        MessageError messageError = new MessageError(e.getBody().getStatus(), HttpStatus.BAD_REQUEST, e.getBindingResult().getFieldErrors().stream().map(x -> x.getDefaultMessage()).collect(Collectors.joining(", ")));
         return new ResponseEntity<>(messageError, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ExceptionBadRequest.class)
     public ResponseEntity<MessageError> handle(ExceptionBadRequest e) {
-        MessageError messageError = new MessageError(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST,
-                e.getMessage(),
-                null
-        );
+        MessageError messageError = new MessageError(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, e.getMessage());
         return new ResponseEntity<>(messageError, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ExceptionNotFound.class)
     public ResponseEntity<MessageError> handle(ExceptionNotFound e) {
-        MessageError messageError = new MessageError(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND,
-                e.getMessage(),
-                null
-        );
+        MessageError messageError = new MessageError(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND, e.getMessage());
         return new ResponseEntity<>(messageError, HttpStatus.NOT_FOUND);
     }
 
