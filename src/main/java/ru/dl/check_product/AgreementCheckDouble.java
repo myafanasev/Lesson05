@@ -10,7 +10,7 @@ import ru.dl.repo.AgreementRepo;
 import ru.dl.repo.TppProductRepo;
 
 @Component
-@Order(20)
+@Order(30)
 public class AgreementCheckDouble implements ProductCheckable{
     @Autowired
     AgreementRepo repoAgreement;

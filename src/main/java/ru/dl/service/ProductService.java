@@ -30,13 +30,12 @@ public class ProductService {
     public ProductResponse make(ModelProduct modelProduct) {
         List<Long> arrRegister = new ArrayList<>(); // Идентификаторы продуктового регистра
 
+        // выполняем проверки
+        for (ProductCheckable ch : productCheckables) {
+            ch.check(modelProduct);
+        }
+
         if (modelProduct.getInstanceId() == null) { // Если ИД ЭП в поле Request.Body.instanceId не задано (NULL/Пусто), то выполняется процесс создания нового экземпляра
-            // выполняем проверки
-            for (ProductCheckable ch : productCheckables) {
-                ch.check(modelProduct);
-            }
-
-
             // По КодуПродукта найти связные записи в Каталоге Типа регистра
             List<String> registerTypes = registerTypeFind.find(modelProduct);
 
@@ -63,6 +62,7 @@ public class ProductService {
                 arrRegister.add(accountResponse.getDataAccountId());
             }
         }
+
 
         List<Long> arr2 = new ArrayList<>();
         arr2.add(20L);

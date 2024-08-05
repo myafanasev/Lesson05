@@ -17,9 +17,12 @@ public class ProductCheckDouble implements ProductCheckable{
 
     @Override
     public void check(ModelProduct modelProduct) {
-        Long productId = repoTppProduct.getIdByNumber(modelProduct.getContractNumber());
-        if (productId != null) {
-            throw new ExceptionBadRequest("Параметр ContractNumber № договора " + modelProduct.getContractNumber() + " уже существует для ЭП с ИД " + productId);
+        if (modelProduct.getInstanceId() == null) { // только если instanceId не заполнен
+            Long productId = repoTppProduct.getIdByNumber(modelProduct.getContractNumber());
+            if (productId != null) {
+                throw new ExceptionBadRequest("Параметр ContractNumber № договора " + modelProduct.getContractNumber() + " уже существует для ЭП с ИД " + productId);
+            }
         }
     }
+
 }
