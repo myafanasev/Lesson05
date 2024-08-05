@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,13 +23,13 @@ public class ModelProduct {
     @NotNull(message = "Имя обязательного параметра registerType не заполнено")
     private String registerType;
     @NotNull(message = "Имя обязательного параметра mdmCode не заполнено")
-    private String mdmCode;
+    private Long mdmCode;
     @NotNull(message = "Имя обязательного параметра contractNumber не заполнено")
     private String contractNumber;
     @NotNull(message = "Имя обязательного параметра contractDate не заполнено")
-    private Date contractDate;
+    private Timestamp contractDate;
     @NotNull(message = "Имя обязательного параметра priority не заполнено")
-    private Integer priority;
+    private Long priority;
     private Double interestRatePenalty;
     private Double minimalBalance;
     private Double thresholdAmount;
