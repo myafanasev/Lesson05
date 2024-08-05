@@ -1,4 +1,4 @@
-package ru.dl.check;
+package ru.dl.check_account;
 
 import ru.dl.model.ModelAccount;
 

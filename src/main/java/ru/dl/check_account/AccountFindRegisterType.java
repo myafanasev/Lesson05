@@ -1,5 +1,5 @@
 
-package ru.dl.check;
+package ru.dl.check_account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -11,7 +11,7 @@ import ru.dl.repo.TppRefProductRegisterTypeRepo;
 
 // Взять значение из Request.Body.registryTypeCode и найти соответствующие ему записи в tpp_ref_product_register_type.value
 @Component
-@Order(10)
+@Order(20)
 public class AccountFindRegisterType implements AccountCheckable{
     @Autowired
     TppRefProductRegisterTypeRepo repotppRefProductRegisterType;

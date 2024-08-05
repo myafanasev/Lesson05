@@ -1,4 +1,4 @@
-package ru.dl.check;
+package ru.dl.check_account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -16,7 +16,8 @@ public class AccountCheckDouble implements AccountCheckable{
 
     @Override
     public void check(ModelAccount modelAccount) {
-        if (repoTppProductRegister.findAllByProductIdAndType(modelAccount.getInstanceId(), modelAccount.getRegistryTypeCode()).size() > 0 ) {
-            throw new ExceptionBadRequest("Параметр registryTypeCode тип регистра " + modelAccount.getRegistryTypeCode() + " уже существует для ЭП с ИД " + modelAccount.getInstanceId());
+        Long registerId = repoTppProductRegister.getIdByProductIdAndType(modelAccount.getInstanceId(), modelAccount.getRegistryTypeCode());
+        if (registerId != null) {
+            throw new ExceptionBadRequest("Параметр registryTypeCode тип регистра " + modelAccount.getRegistryTypeCode() + " уже существует для ЭП с ИД " + registerId);
         }}
 }

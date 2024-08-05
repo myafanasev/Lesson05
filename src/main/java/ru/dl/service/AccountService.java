@@ -2,7 +2,7 @@ package ru.dl.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.dl.check.AccountCheckable;
+import ru.dl.check_account.AccountCheckable;
 import ru.dl.entity.Account;
 import ru.dl.entity.AccountPool;
 import ru.dl.entity.TppProductRegister;
