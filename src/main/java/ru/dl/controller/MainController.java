@@ -30,14 +30,12 @@ public class MainController {
     @PostMapping("/corporate-settlement-account/create")
     public ResponseEntity<AccountResponse> handleAccount(@RequestBody @Validated ModelAccount modelAccount) {
         System.out.println(modelAccount);
-
         return new ResponseEntity<>(accountService.make(modelAccount), HttpStatus.OK);
     }
 
     @PostMapping("/corporate-settlement-instance/create")
     public ResponseEntity<ProductResponse> handleProduct(@RequestBody @Validated ModelProduct modelProduct) {
         System.out.println(modelProduct);
-
         return new ResponseEntity<>(productService.make(modelProduct), HttpStatus.OK);
     }
 
