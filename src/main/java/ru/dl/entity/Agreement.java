@@ -56,29 +56,57 @@ public class Agreement {
     private Timestamp interestCalculationDate;
     @Basic
     @Column(name = "interest_rate", nullable = true, precision = 0)
-    private BigInteger interestRate;
+    private Double interestRate;
     @Basic
     @Column(name = "coefficient", nullable = true, precision = 0)
-    private BigInteger coefficient;
+    private Double coefficient;
     @Basic
     @Column(name = "coefficient_action", nullable = true, length = 50)
     private String coefficientAction;
     @Basic
     @Column(name = "minimum_interest_rate", nullable = true, precision = 0)
-    private BigInteger minimumInterestRate;
+    private Double minimumInterestRate;
     @Basic
     @Column(name = "minimum_interest_rate_coefficient", nullable = true, precision = 0)
-    private BigInteger minimumInterestRateCoefficient;
+    private Double minimumInterestRateCoefficient;
     @Basic
     @Column(name = "minimum_interest_rate_coefficient_action", nullable = true, length = 50)
     private String minimumInterestRateCoefficientAction;
     @Basic
     @Column(name = "maximal_interest_rate", nullable = true, precision = 0)
-    private BigInteger maximalInterestRate;
+    private Double maximalInterestRate;
     @Basic
     @Column(name = "maximal_interest_rate_coefficient", nullable = true, precision = 0)
-    private BigInteger maximalInterestRateCoefficient;
+    private Double maximalInterestRateCoefficient;
     @Basic
     @Column(name = "maximal_interest_rate_coefficient_action", nullable = true, length = 50)
     private String maximalInterestRateCoefficientAction;
+
+    public Agreement() {
+    }
+
+    public Agreement(Long productId, String generalAgreementId, String supplementaryAgreementId, String arrangementType, Long shedulerJobId, String number, Timestamp openingDate, Timestamp closingDate, Timestamp cancelDate, Long validityDuration, String cancellationReason, String status, Timestamp interestCalculationDate, Double interestRate, Double coefficient, String coefficientAction, Double minimumInterestRate, Double minimumInterestRateCoefficient, String minimumInterestRateCoefficientAction, Double maximalInterestRate, Double maximalInterestRateCoefficient, String maximalInterestRateCoefficientAction) {
+        this.productId = productId;
+        this.generalAgreementId = generalAgreementId;
+        this.supplementaryAgreementId = supplementaryAgreementId;
+        this.arrangementType = arrangementType;
+        this.shedulerJobId = shedulerJobId;
+        this.number = number;
+        this.openingDate = openingDate;
+        this.closingDate = closingDate;
+        this.cancelDate = cancelDate;
+        this.validityDuration = validityDuration;
+        this.cancellationReason = cancellationReason;
+        this.status = status;
+        this.interestCalculationDate = interestCalculationDate;
+        this.interestRate = interestRate;
+        this.coefficient = coefficient;
+        this.coefficientAction = coefficientAction;
+        this.minimumInterestRate = minimumInterestRate;
+        this.minimumInterestRateCoefficient = minimumInterestRateCoefficient;
+        this.minimumInterestRateCoefficientAction = minimumInterestRateCoefficientAction;
+        this.maximalInterestRate = maximalInterestRate;
+        this.maximalInterestRateCoefficient = maximalInterestRateCoefficient;
+        this.maximalInterestRateCoefficientAction = maximalInterestRateCoefficientAction;
+    }
 }
