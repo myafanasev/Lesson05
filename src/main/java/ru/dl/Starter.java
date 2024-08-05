@@ -9,9 +9,5 @@ import ru.dl.repo.AccountRepo;
 public class Starter {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Starter.class, args);
-        System.out.println("Привет, Мир!");
-
-        AccountRepo accountRepo = ctx.getBean(AccountRepo.class);
-        accountRepo.findAll().stream().forEach(System.out::println);
     }
 }
