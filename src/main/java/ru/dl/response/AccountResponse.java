@@ -14,9 +14,8 @@ public class AccountResponse {
     @AllArgsConstructor
     private static class ResponseAccountBody {
         private Long accountId;
-
     }
-    public Long getDataAccountId()
+    public Long retDataAccountId()
     {
         return data.getAccountId();
     }

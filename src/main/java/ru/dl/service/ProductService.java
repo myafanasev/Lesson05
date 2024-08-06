@@ -65,7 +65,7 @@ public class ProductService {
                                 null
                         );
                 AccountResponse accountResponse = accountService.make(modelAccount);
-                arrRegister.add(accountResponse.getDataAccountId());
+                arrRegister.add(accountResponse.retDataAccountId());
             }
         }
 
