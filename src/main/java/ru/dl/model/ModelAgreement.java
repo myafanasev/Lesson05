@@ -1,11 +1,15 @@
 package ru.dl.model;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ModelAgreement {
     private String generalAgreementId;
     private String supplementaryAgreementId;
